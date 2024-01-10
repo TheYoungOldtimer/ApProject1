@@ -1,6 +1,7 @@
 #include <QCoreApplication>
 
 #include "file.h"
+#include "client.h"
 #include <QJsonArray>
 #include <QFile>
 #include <QJsonDocument>
@@ -32,6 +33,8 @@ int main()
         book2.insert("price", obj2.get_price());
         book2.insert("writer", obj2.get_writer().c_str());
         file::append_toa_jfile(book2,Doc,"C:/Users/armin.DESKTOP-R1F9757/OneDrive/Documents/AP/Source/Socket_JSON/book.json");
+
+
 
     //return a.exec();
 }
