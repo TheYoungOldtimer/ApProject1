@@ -11,9 +11,11 @@
 #include <QPushButton>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class Client; }
+namespace Ui
+{
+    class Client;
+}
 QT_END_NAMESPACE
-
 
 class Client : public QMainWindow
 {
@@ -21,8 +23,8 @@ class Client : public QMainWindow
 
 public:
     Client(QWidget *parent = nullptr);
-    QByteArray ReadFile(QJsonObject obj, QJsonDocument doc,QString path);
-    void WriteInFile(QByteArray bytes,QString path);
+    QByteArray ReadFile(QJsonObject obj, QJsonDocument doc, QString path);
+    void WriteInFile(QByteArray bytes, QString path);
     ~Client();
 
 public slots:
@@ -34,13 +36,10 @@ public slots:
 
     void disconnectedFromServer();
 
-
 private slots:
     void on_bookName_textEdited(const QString &arg1);
 
     void on_bookPrice_textEdited(const QString &arg1);
-
-
 
     void on_book_author_textEdited(const QString &arg1);
 
@@ -49,11 +48,9 @@ private slots:
 private:
     Ui::Client *ui;
     QTcpSocket *clientsocket;
-    //QTextEdit *ted;
-    //QVBoxLayout *mainlayout;
-    //QPushButton *pbnConnect;
-
-
+    // QTextEdit *ted;
+    // QVBoxLayout *mainlayout;
+    // QPushButton *pbnConnect;
 };
 extern QJsonObject book1;
 extern string bookname;

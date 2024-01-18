@@ -3,20 +3,23 @@
 #include <QJsonDocument>
 #include <string>
 using namespace std;
-class book{
+class book
+{
 private:
     int price;
     string name;
     string writer;
+
 public:
-    book(string name,string writer, int price){
-        this->name=name;
-        this->writer=writer;
-        this->price=price;
+    book(string name, string writer, int price)
+    {
+        this->name = name;
+        this->writer = writer;
+        this->price = price;
     }
-    string get_name(){return name;}
-    string get_writer(){return writer;}
-    int get_price(){return price;}
+    string get_name() { return name; }
+    string get_writer() { return writer; }
+    int get_price() { return price; }
 };
 
 class file

@@ -6,9 +6,11 @@
 #include <QTcpSocket>
 #include <QTcpServer>
 
-
 QT_BEGIN_NAMESPACE
-namespace Ui { class Server; }
+namespace Ui
+{
+    class Server;
+}
 QT_END_NAMESPACE
 
 class Server : public QMainWindow
@@ -18,16 +20,15 @@ class Server : public QMainWindow
 public:
     Server(QWidget *parent = nullptr);
     ~Server();
-    QByteArray ReadFile(QJsonObject obj, QJsonDocument doc,QString path);
-    void WriteInFile(QByteArray &bytes,QString path);
-
+    QByteArray ReadFile(QJsonObject obj, QJsonDocument doc, QString path);
+    void WriteInFile(QByteArray &bytes, QString path);
 
 private:
     Ui::Server *ui;
     QTcpSocket *mySocket;
     QTcpServer *myServer;
 public slots:
-    //void connectingToServer();
+    // void connectingToServer();
 
     void readingData();
     void writingData();
