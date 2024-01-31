@@ -2,7 +2,6 @@
 #include "ui_mainwindowapp.h"
 #include "client3.h"
 
-#include "member.h"
 #include "server1.h"
 #include "login.h"
 

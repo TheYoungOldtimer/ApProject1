@@ -86,9 +86,7 @@ void Login::readingData(){
     QByteArray data = clientsocket->readAll();
     ui->ted->append(data);
 }
-void Login::disconnectedFromServer(){
-    ui->ted->append("connection lost!\n");
-}
+void Login::disconnectedFromServer() { ui->ted->append("connection lost!\n"); }
 void Login::ReadFile(QString path){
 
     QJsonDocument jsonOrg;
