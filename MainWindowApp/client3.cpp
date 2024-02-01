@@ -224,15 +224,23 @@ void client3::on_checkBox_2_stateChanged(int arg1)
         newMem.setRole("Manager");
 }
 
+// void client3::on_passNotSame_linkActivated(const QString &link)
+// {
+//     if (newMem.getPass() != arg1)
+//     {
+//         ui->passNotSame->setText("Passwords are not thw same! please check.")
+//     }
+// }
+
 void client3::on_passRepeat_textChanged(const QString &arg1)
 {
     if (newMem.getPass() != arg1)
     {
-        ui->passnotMatch->setText("Not a match with the password!");
+        ui->passNotSame->setText("Passwords are not the same! Please check");
     }
     else
     {
-        ui->passnotMatch->setText("");
+        ui->passNotSame->setText("");
         check4 = 1;
     }
 }
