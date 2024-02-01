@@ -5,8 +5,9 @@
 #include <QTcpSocket>
 using namespace std;
 
-namespace Ui {
-class Login;
+namespace Ui
+{
+    class Login;
 }
 
 class Login : public QDialog
@@ -26,15 +27,11 @@ public slots:
 
     void disconnectedFromServer();
 
-
 private slots:
-
-
 
     void on_emailEdit_textChanged(const QString &arg1);
 
     void on_passEdit_textChanged(const QString &arg1);
-
 
 private:
     Ui::Login *ui;

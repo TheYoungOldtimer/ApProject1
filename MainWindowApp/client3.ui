@@ -195,13 +195,11 @@
    <property name="font">
     <font>
      <pointsize>16</pointsize>
+     <bold>false</bold>
     </font>
    </property>
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="mouseTracking">
-    <bool>true</bool>
    </property>
    <property name="styleSheet">
     <string notr="true">alternate-background-color: rgb(0, 85, 255);
@@ -226,6 +224,7 @@ background-color: rgb(0, 170, 255);</string>
    <property name="font">
     <font>
      <pointsize>12</pointsize>
+     <bold>false</bold>
     </font>
    </property>
    <property name="layoutDirection">
@@ -262,25 +261,7 @@ background-color: rgb(0, 170, 255);</string>
        <string notr="true">color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
-       <string>Enter Your Email :</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label">
-      <property name="font">
-       <font>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);</string>
-      </property>
-      <property name="text">
-       <string>Enter Your Name :</string>
+       <string>    Enter Your Email :</string>
       </property>
      </widget>
     </item>
@@ -298,7 +279,7 @@ background-color: rgb(0, 170, 255);</string>
        <string notr="true">color: rgb(0, 0, 0);</string>
       </property>
       <property name="text">
-       <string>Enter Your Password :</string>
+       <string> Enter Your Password :</string>
       </property>
      </widget>
     </item>
@@ -320,6 +301,24 @@ background-color: rgb(0, 170, 255);</string>
       </property>
      </widget>
     </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>    Enter Your Name :</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="layoutWidget">
@@ -327,7 +326,7 @@ background-color: rgb(0, 170, 255);</string>
     <rect>
      <x>200</x>
      <y>410</y>
-     <width>161</width>
+     <width>163</width>
      <height>95</height>
     </rect>
    </property>
@@ -399,6 +398,7 @@ background-color: rgb(0, 170, 255);</string>
     <font>
      <pointsize>14</pointsize>
      <italic>true</italic>
+     <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">
@@ -408,7 +408,7 @@ background-color: rgb(0, 170, 255);</string>
     <string>Agree with terms and conditions?</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>430</x>
@@ -421,63 +421,6 @@ background-color: rgb(0, 170, 255);</string>
     <property name="verticalSpacing">
      <number>6</number>
     </property>
-    <item row="4" column="0">
-     <widget class="QLineEdit" name="passRepeat">
-      <property name="font">
-       <font>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(158, 158, 158);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="echoMode">
-       <enum>QLineEdit::Password</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLineEdit" name="nameEdit">
-      <property name="font">
-       <font>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(158, 158, 158);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QLineEdit" name="emailEdit">
-      <property name="font">
-       <font>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(158, 158, 158);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
     <item row="3" column="0">
      <widget class="QLineEdit" name="passEdit">
       <property name="font">
@@ -499,17 +442,71 @@ background-color: rgb(0, 170, 255);</string>
       </property>
      </widget>
     </item>
+    <item row="4" column="0">
+     <widget class="QLineEdit" name="passRepeat">
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(158, 158, 158);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLineEdit" name="emailEdit">
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(158, 158, 158);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLineEdit" name="nameEdit">
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(158, 158, 158);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
-  <zorder>emailEdit</zorder>
-  <zorder>nameEdit</zorder>
-  <zorder>passEdit</zorder>
+  <zorder>layoutWidget</zorder>
   <zorder>ted</zorder>
   <zorder>pushButton_2</zorder>
   <zorder>memberExist</zorder>
-  <zorder>passRepeat</zorder>
   <zorder>passNotSame</zorder>
   <zorder>checkBox_3</zorder>
  </widget>

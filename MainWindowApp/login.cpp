@@ -81,29 +81,45 @@ void Login::readingData()
     QByteArray data = clientsocket->readAll();
     ui->ted->append(data);
 }
+
 void Login::disconnectedFromServer()
 {
     ui->ted->append("connection lost!\n");
 }
+
 void Login::ReadFile(QString path)
 {
-
     QJsonDocument jsonOrg;
-    QFile file(path);                    // json file
-    if (!file.open(QIODevice::ReadOnly)) // read json content
+
+    QFile file(path);  // JSON file
+    if (!file.open(QIODevice::ReadOnly))
     {
-        // open file error ...
-        ui->ted->append("File not open");
+        // Handle file open error
+        ui->ted->append("File not open. Error: " + file.errorString());
+        return;
     }
-    else
-    {
-        ui->ted->append("File is Open");
-        jsonOrg = QJsonDocument::fromJson(file.readAll());
-    }
+
+    ui->ted->append("File is Open");
+
+    // Read and parse JSON
+    QByteArray jsonData = file.readAll();
     file.close();
+
+    QJsonParseError jsonError;
+    jsonOrg = QJsonDocument::fromJson(jsonData, &jsonError);
+
+    if (jsonError.error != QJsonParseError::NoError)
+    {
+        // Handle JSON parsing error
+        ui->ted->append("JSON parsing error: " + jsonError.errorString());
+        return;
+    }
+
+    // Continue with JSON processing
     QJsonArray arrLog = jsonOrg.array();
     bool flag = false;
-    for (const auto entry : arrLog)
+
+    for (const auto &entry : arrLog)
     {
         const auto obj2 = entry.toObject();
         if (obj2["Email"].toString() == email)
@@ -113,17 +129,59 @@ void Login::ReadFile(QString path)
             break;
         }
     }
-    if (flag == false)
+
+    if (!flag)
     {
-        ui->membernotFound->setText("No member with this Email address was found!");
+        ui->loginError->setText("No member with this Email address was found!");
         ui->pushButton->setDisabled(true);
     }
     else
     {
         ui->pushButton->setEnabled(true);
-        ui->membernotFound->setText("");
+        ui->loginError->setText("");
     }
 }
+
+
+// void Login::ReadFile(QString path)
+// {
+
+//     QJsonDocument jsonOrg;
+//     QFile file(path);                    // json file
+//     if (!file.open(QIODevice::ReadOnly)) // read json content
+//     {
+//         // open file error ...
+//         ui->ted->append("File not open");
+//     }
+//     else
+//     {
+//         ui->ted->append("File is Open");
+//         jsonOrg = QJsonDocument::fromJson(file.readAll());
+//     }
+//     file.close();
+//     QJsonArray arrLog = jsonOrg.array();
+//     bool flag = false;
+//     for (const auto entry : arrLog)
+//     {
+//         const auto obj2 = entry.toObject();
+//         if (obj2["Email"].toString() == email)
+//         {
+//             JObj1 = obj2;
+//             flag = true;
+//             break;
+//         }
+//     }
+//     if (flag == false)
+//     {
+//         ui->loginError ->setText("No member with this Email address was found!");
+//         ui->pushButton->setDisabled(true);
+//     }
+//     else
+//     {
+//         ui->pushButton->setEnabled(true);
+//         ui->loginError->setText("");
+//     }
+// }
 
 void Login::on_emailEdit_textChanged(const QString &arg1)
 {
@@ -137,12 +195,12 @@ void Login::on_passEdit_textChanged(const QString &arg1)
     passw = arg1;
     if (passw == JObj1["Password"].toString())
     {
-        ui->wrongpass->setText("");
+        ui->loginError->setText("");
         ui->pushButton->setEnabled(true);
     }
     else
     {
-        ui->wrongpass->setText("Wrong password!");
+        ui->loginError->setText("Wrong password!");
         ui->pushButton->setDisabled(true);
     }
 }

@@ -136,7 +136,7 @@ void client3::WriteInFile(QByteArray bytes, QString path)
     if (file.open(QIODevice::WriteOnly))
     {
         QTextStream iStream(&file);
-        iStream.setCodec("utf-8");
+        // iStream.setCodec("utf-8");
         iStream << bytes;
         file.close();
     }
