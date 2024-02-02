@@ -194,7 +194,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>16</pointsize>
+     <pointsize>20</pointsize>
      <bold>false</bold>
     </font>
    </property>
