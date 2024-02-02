@@ -21,19 +21,30 @@ SOURCES += \
     main.cpp \
     mainwindowapp.cpp \
     member.cpp \
-    server1.cpp
+    membermain.cpp \
+    organ.cpp \
+    project.cpp \
+    server1.cpp \
+    task.cpp \
+    team.cpp
 
 HEADERS += \
     client3.h \
     login.h \
     mainwindowapp.h \
     member.h \
-    server1.h
+    membermain.h \
+    organ.h \
+    project.h \
+    server1.h \
+    task.h \
+    team.h
 
 FORMS += \
     client3.ui \
     login.ui \
     mainwindowapp.ui \
+    membermain.ui \
     server1.ui
 
 # Default rules for deployment.

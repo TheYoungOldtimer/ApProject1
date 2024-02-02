@@ -11,20 +11,20 @@
 #include <QJsonArray>
 #include <QFile>
 
-Server1::Server1(QWidget *parent) : QDialog(parent),
-                                    ui(new Ui::Server1)
+Server1::Server1(QWidget *parent, quint16 port) :
+    QDialog(parent),
+    ui(new Ui::Server1)
 {
     ui->setupUi(this);
     myServer = new QTcpServer();
-    myServer->listen(QHostAddress::Any, 2039);
-    if (!myServer->isListening())
-    {
+    myServer->listen(QHostAddress::Any, port);
+    if(!myServer->isListening()){
         ui->textEdit->append("Error : Not listening!");
+
     }
-    else
-    {
+    else{
         ui->textEdit->append("Listetning...");
-        connect(myServer, SIGNAL(newConnection()), this, SLOT(newConnectionSlot()));
+            connect(myServer, SIGNAL(newConnection()),this, SLOT(newConnectionSlot()));
     }
 }
 
@@ -32,98 +32,97 @@ Server1::~Server1()
 {
     delete ui;
 }
-void Server1::newConnectionSlot()
-{
+void Server1::newConnectionSlot(){
     mySocket = myServer->nextPendingConnection();
-    // با این دستور میاد سوکت بعدی ای که تو راهه روی اون پرت رو دریافت میکنه
-    // که درواقع سوکتیه که توی کلاینت ارسال کردیم
+    //با این دستور میاد سوکت بعدی ای که تو راهه روی اون پرت رو دریافت میکنه
+    //که درواقع سوکتیه که توی کلاینت ارسال کردیم
 
     ui->textEdit->append("new connection: ");
 
-    connect(mySocket, &QTcpSocket::readyRead, this, &Server1::readingData);
-    connect(mySocket, &QTcpSocket::bytesWritten, this, &Server1::writingData);
 
-    connect(mySocket, &QTcpSocket::disconnected, this, &Server1::disconnectedFromServer);
+    connect(mySocket, &QTcpSocket::readyRead,this, &Server1::readingData);
+    connect(mySocket, &QTcpSocket::bytesWritten,this,&Server1::writingData);
+
+    connect(mySocket, &QTcpSocket::disconnected,this, &Server1::disconnectedFromServer);
+
 }
-QByteArray Server1::ReadFile(QJsonObject obj, QJsonDocument doc, QString path)
-{
+QByteArray Server1::ReadFile(QJsonObject obj, QJsonDocument doc,QString path){
 
     QJsonDocument jsonOrg;
-    QFile file(path);                    // json file
-    if (!file.open(QIODevice::ReadOnly)) // read json content
-    {
-        // open file error ...
-        ui->textEdit->append("File not open");
-    }
-    else
-    {
-        ui->textEdit->append("File is Open");
-        jsonOrg = QJsonDocument::fromJson(file.readAll());
-    }
-    file.close();
-    QJsonArray arrLog = jsonOrg.array();
-    int flag = 0;
-    for (const auto entry : arrLog)
-    {
-        const auto obj2 = entry.toObject();
-        if (obj2["name"] == obj["name"])
+    QFile file(path); // json file
+        if( !file.open( QIODevice::ReadOnly ) ) //read json content
         {
-            flag = 1;
-            break;
+            //open file error ...
+            ui->textEdit->append("File not open");
         }
-    }
-    if (flag == 0)
-    {
-        arrLog.push_back(obj);
-        doc.setArray(arrLog);
-    }
-    QByteArray bytes = doc.toJson(QJsonDocument::Indented);
+        else{
+            ui->textEdit->append("File is Open");
+            jsonOrg = QJsonDocument::fromJson( file.readAll() );}
+        file.close();
+        QJsonArray arrLog = jsonOrg.array();
+        int flag=0;
+        for (const auto entry: arrLog) {
+            const auto obj2 = entry.toObject();
+                if (obj2["name"] == obj["name"]) {
+                      flag=1;
+                      break;
+                      }
+                    }
+             if(flag==0){
+               arrLog.push_back( obj );
+               doc.setArray( arrLog );}
+        QByteArray bytes = doc.toJson( QJsonDocument::Indented );
 
     return bytes;
 }
-void Server1::WriteInFile(QByteArray &bytes, QString path)
-{
+void Server1::WriteInFile(QByteArray &bytes,QString path){
     QFile file(path);
-    if (file.open(QIODevice::WriteOnly))
-    {
-        QTextStream iStream(&file);
-        iStream.setCodec("utf-8");
-        iStream << bytes;
-        file.close();
-    }
-    else
-    {
-        ui->textEdit->append("file open failed\n");
-    }
+    if( file.open( QIODevice::WriteOnly ))
+           {
+                QTextStream iStream( &file );
+                iStream.setCodec( "utf-8" );
+                iStream << bytes;
+                file.close();
+           }
+           else
+           {
+                ui->textEdit->append("file open failed\n");
+           }
 }
-// QByteArray bytes;
-void Server1::readingData()
-{
+//QByteArray bytes;
+void Server1::readingData(){
 
     ui->textEdit->append("data recieved!");
     bytes = mySocket->readAll();
     ui->textEdit->append(bytes.toStdString().c_str());
 
     QJsonDocument doc = QJsonDocument::fromJson(bytes);
-    WriteInFile(bytes, "C:/Users/armin.DESKTOP-R1F9757/OneDrive/Documents/AP/Source/Socket_JSON/member.json");
+    WriteInFile(bytes,"member.json");
 
     mySocket->write("file is updated");
     this->close();
+
 }
-void Server1::writingData()
-{
+void Server1::writingData(){
     ui->textEdit->append("written successfully!\n");
 }
-void Server1::connectedToServer()
-{
+void Server1::connectedToServer(){
     ui->textEdit->append("connected successfully!\n");
-    // mySocket->write("Hello!\n");
+    //mySocket->write("Hello!\n");
+
 }
-void Server1::disconnectedFromServer()
-{
+void Server1::disconnectedFromServer(){
     ui->textEdit->append("connection lost!\n");
 }
+//void Server1::serverclose(Server1 sv){
+//    sv.close();
+//}
+
+
 
 void Server1::on_pushButton_clicked()
 {
+
+
 }
+
