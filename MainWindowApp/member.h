@@ -27,7 +27,9 @@ public:
     bool getOrgManager();
     bool getTeamManager();
 
-    explicit Member(QWidget *parent = nullptr);
+
+    Member();
+    Member(Member &mem);
     Member(QString Name, QString Email, QString Password, QString Role);
 };
 extern Member newMem;
