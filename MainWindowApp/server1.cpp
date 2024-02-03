@@ -11,13 +11,13 @@
 #include <QJsonArray>
 #include <QFile>
 
-Server1::Server1(QWidget *parent) :
+Server1::Server1(QWidget *parent, quint16 port) :
     QDialog(parent),
     ui(new Ui::Server1)
 {
     ui->setupUi(this);
     myServer = new QTcpServer();
-    myServer->listen(QHostAddress::Any, 2039);
+    myServer->listen(QHostAddress::Any, port);
     if(!myServer->isListening()){
         ui->textEdit->append("Error : Not listening!");
 
@@ -97,7 +97,7 @@ void Server1::readingData(){
     ui->textEdit->append(bytes.toStdString().c_str());
 
     QJsonDocument doc = QJsonDocument::fromJson(bytes);
-    WriteInFile(bytes,"C:/Users/armin.DESKTOP-R1F9757/OneDrive/Documents/AP/Source/Socket_JSON/member.json");
+    WriteInFile(bytes,"member.json");
 
     mySocket->write("file is updated");
     this->close();
@@ -114,12 +114,11 @@ void Server1::connectedToServer(){
 void Server1::disconnectedFromServer(){
     ui->textEdit->append("connection lost!\n");
 }
+//void Server1::serverclose(Server1 sv){
+//    sv.close();
+//}
 
 
 
-void Server1::on_pushButton_clicked()
-{
 
-
-}
 

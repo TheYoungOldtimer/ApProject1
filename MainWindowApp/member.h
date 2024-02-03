@@ -6,14 +6,19 @@
 class Member
 {
 private:
-    QString username;
-    QString email;
-    QString password;
+    QString username ="";
+    QString email = "";
+    QString password ="";
     QString role = "Member";
+    QString mytask = "";
+    QString myproject = "";
+    QString myteam = "";
+    QString myorgan = "";
     bool OrgManager = false;
     bool TeamManager = false;
 
 public:
+
     void setUsername(QString);
     void setEmail(QString);
     void setPass(QString);
@@ -27,7 +32,9 @@ public:
     bool getOrgManager();
     bool getTeamManager();
 
-    explicit Member(QWidget *parent = nullptr);
+
+    Member();
+    Member(Member &mem);
     Member(QString Name, QString Email, QString Password, QString Role);
 };
 extern Member newMem;

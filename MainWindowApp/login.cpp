@@ -1,6 +1,7 @@
 #include "login.h"
 #include "ui_login.h"
 
+
 #include "member.h"
 #include <QPushButton>
 #include <QtWidgets/QWidget>
@@ -20,11 +21,13 @@ QJsonObject JObj1;
 QString email;
 QString passw;
 
-Login::Login(QWidget *parent) :
+Login::Login(QWidget *parent, quint16 port) :
     QDialog(parent),
     ui(new Ui::Login)
 {
     ui->setupUi(this);
+    port16 = port;
+    ui->membernotFound->setText("");
 }
 
 Login::~Login()
@@ -54,7 +57,7 @@ void Login::connectingToServer(){
 
 
     clientsocket = new QTcpSocket();
-    clientsocket->connectToHost("127.0.0.1", 2039);
+    clientsocket->connectToHost("127.0.0.1", port16);
     ui->ted->setText("Connecting...\n");
 
     connect(clientsocket, &QTcpSocket::connected,this, &Login::connectedToServer);
@@ -66,7 +69,7 @@ void Login::connectingToServer(){
 void Login::connectedToServer(){
 
 
-    ReadFile("C:/Users/armin.DESKTOP-R1F9757/OneDrive/Documents/AP/Source/Socket_JSON/member.json");
+    ReadFile("member.json");
 
     ui->ted->append("connected successfully!\n");
 
@@ -117,10 +120,14 @@ void Login::ReadFile(QString path){
             ui->pushButton->setDisabled(true);
         }
         else{
-            ui->pushButton->setEnabled(true);
+            //ui->pushButton->setEnabled(true);
             ui->membernotFound->setText("");
         }
 
+}
+void Login::lockBotton(){
+    ui->pushButton->setDisabled(true);
+    ui->timeout->setText("Connection Failed!\nPlease try again.");
 }
 
 
@@ -131,7 +138,7 @@ void Login::on_emailEdit_textChanged(const QString &arg1)
 {
     email=arg1;
     connectingToServer();
-    //ReadFile("C:/Users/armin.DESKTOP-R1F9757/OneDrive/Documents/AP/Source/Socket_JSON/member.json");
+    //ReadFile("member.json");
 }
 
 void Login::on_passEdit_textChanged(const QString &arg1)
@@ -145,4 +152,22 @@ void Login::on_passEdit_textChanged(const QString &arg1)
         ui->wrongpass->setText("Worng password!");
         ui->pushButton->setDisabled(true);
     }
+}
+
+void Login::on_pushButton_clicked()
+{
+    this->close();
+    temp = new Member();
+    temp->setPass(JObj1["password"].toString());
+    temp->setEmail(JObj1["email"].toString());
+    temp->setRole(JObj1["role"].toString());
+    temp->setUsername(JObj1["username"].toString());
+    temp->setOrgManager(JObj1["Is a CEO?"].toBool());
+    temp->setTeamManager(JObj1["Is a Manager"].toBool());
+
+    newloginmem = new memberMain(this,*temp);
+
+
+    newloginmem->show();
+
 }

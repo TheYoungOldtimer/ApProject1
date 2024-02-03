@@ -22,11 +22,12 @@ int check4;
 int check5=1;
 int checksum;
 
-client3::client3(QWidget *parent) :
+client3::client3(QWidget *parent, quint16 port) :
     QDialog(parent),
     ui(new Ui::client3)
 {
     ui->setupUi(this);
+    port16= port;
 }
 
 client3::~client3()
@@ -59,7 +60,7 @@ void client3::connectingToServer(){
 
 
     clientsocket = new QTcpSocket();
-    clientsocket->connectToHost("127.0.0.1", 2039);
+    clientsocket->connectToHost("127.0.0.1", port16);
     ui->ted->setText("Connecting...\n");
 
     connect(clientsocket, &QTcpSocket::connected,this, &client3::connectedToServer);
@@ -69,11 +70,14 @@ void client3::connectingToServer(){
 
 }
 
-
+void client3::timeouted(){
+    ui->pushButton_2->setDisabled(true);
+    ui->timeout->setText("Connection with the server is Lost!\nPlease try again.");
+}
 void client3::connectedToServer(){
 
     QJsonDocument jsonOrg;
-    bytes = ReadFile(JObj, jsonOrg,"C:/Users/armin.DESKTOP-R1F9757/OneDrive/Documents/AP/Source/Socket_JSON/member.json");
+    bytes = ReadFile(JObj, jsonOrg,"member.json");
 
     ui->ted->append("connected successfully!\n");
 
@@ -178,7 +182,7 @@ void client3::on_emailEdit_textChanged(const QString &arg1)
     QJsonDocument jsonOrg;
 
     QJsonDocument doc;
-    QString path ="C:/Users/armin.DESKTOP-R1F9757/OneDrive/Documents/AP/Source/Socket_JSON/member.json";
+    QString path ="member.json";
     QFile file(path); // json file
         if( !file.open( QIODevice::ReadOnly ) ) //read json content
         {

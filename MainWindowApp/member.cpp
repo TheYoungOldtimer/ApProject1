@@ -7,6 +7,15 @@ Member::Member(QString Name, QString Email, QString Password, QString Role)
     this->password=Password;
     this->role=Role;
 }
+Member::Member(){}
+Member::Member(Member &mem){
+    this->username =  mem.username;
+    this->password = mem.password;
+    this->email = mem.email;
+    this->role = mem.role;
+    this->OrgManager = mem.OrgManager  ;
+    this->TeamManager = mem.TeamManager  ;
+}
 void Member::setUsername(QString Name){
     this->username=Name;
 }

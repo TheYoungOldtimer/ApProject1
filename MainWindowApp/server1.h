@@ -16,7 +16,7 @@ class Server1 : public QDialog
     Q_OBJECT
 
 public:
-    explicit Server1(QWidget *parent = nullptr);
+    explicit Server1(QWidget *parent,quint16 port);
     ~Server1();
 
     QByteArray ReadFile(QJsonObject obj, QJsonDocument doc,QString path);
@@ -36,9 +36,11 @@ public slots:
     void connectedToServer();
     void disconnectedFromServer();
     void newConnectionSlot();
+    // void serverclose(Server1);
+
 
 private slots:
-    void on_pushButton_clicked();
+
 };
 extern QByteArray bytes;
 

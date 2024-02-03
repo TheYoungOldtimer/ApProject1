@@ -1,0 +1,35 @@
+[
+    {
+        "Email": "arminssth@gmail.com",
+        "Is a CEO?": true,
+        "Is a Manager": true,
+        "Password": "2234",
+        "Role": "CEO",
+        "Username": "armin",
+        "myteam": "team boobs"
+    },
+    {
+        "Email": "absd@gmail.com",
+        "Is a CEO?": false,
+        "Is a Manager": false,
+        "Password": "2234",
+        "Role": "Manager",
+        "Username": "absd",
+        "myorgan": "sports",
+        "myproject": "loving2",
+        "mytask": "",
+        "myteam": "loving2"
+    },
+    {
+        "Email": "arminkingdd@gmail.com",
+        "Is a CEO?": false,
+        "Is a Manager": false,
+        "Password": "2234",
+        "Role": "",
+        "Username": "armin",
+        "myorgan": "sports",
+        "myproject": "",
+        "mytask": "breath",
+        "myteam": ""
+    }
+]

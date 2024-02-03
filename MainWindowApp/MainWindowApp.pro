@@ -16,25 +16,72 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addmemtoprojwin.cpp \
+    addmemtoteamwin.cpp \
     client3.cpp \
+    editorganwindow.cpp \
     login.cpp \
     main.cpp \
     mainwindowapp.cpp \
     member.cpp \
-    server1.cpp
+    membermain.cpp \
+    memberrolewindow.cpp \
+    newmemberinorgan.cpp \
+    neworganwindow.cpp \
+    newprojectwin.cpp \
+    newteamwindow.cpp \
+    organ.cpp \
+    project.cpp \
+    projectedit.cpp \
+    server1.cpp \
+    task.cpp \
+    tasksetting.cpp \
+    tasksettingedit.cpp \
+    team.cpp \
+    teamedit.cpp
 
 HEADERS += \
+    addmemtoprojwin.h \
+    addmemtoteamwin.h \
     client3.h \
+    editorganwindow.h \
     login.h \
     mainwindowapp.h \
     member.h \
-    server1.h
+    membermain.h \
+    memberrolewindow.h \
+    newmemberinorgan.h \
+    neworganwindow.h \
+    newprojectwin.h \
+    newteamwindow.h \
+    organ.h \
+    project.h \
+    projectedit.h \
+    server1.h \
+    task.h \
+    tasksetting.h \
+    tasksettingedit.h \
+    team.h \
+    teamedit.h
 
 FORMS += \
+    addmemtoprojwin.ui \
+    addmemtoteamwin.ui \
     client3.ui \
+    editorganwindow.ui \
     login.ui \
     mainwindowapp.ui \
-    server1.ui
+    membermain.ui \
+    memberrolewindow.ui \
+    newmemberinorgan.ui \
+    neworganwindow.ui \
+    newprojectwin.ui \
+    newteamwindow.ui \
+    projectedit.ui \
+    server1.ui \
+    tasksetting.ui \
+    tasksettingedit.ui \
+    teamedit.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

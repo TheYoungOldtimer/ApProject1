@@ -260,6 +260,24 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="timeout">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>600</y>
+     <width>311</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>emailEdit</zorder>
   <zorder>label_4</zorder>
   <zorder>nameEdit</zorder>
@@ -275,6 +293,7 @@
   <zorder>checkBox_3</zorder>
   <zorder>memberExist</zorder>
   <zorder>passRepeat</zorder>
+  <zorder>timeout</zorder>
  </widget>
  <resources/>
  <connections/>
