@@ -1,6 +1,6 @@
 # ToDoList App
 Overview
-Welcome to our ToDoList App! This project was created by Mehregan and Armin to provide a simple and efficient way to manage your tasks and stay organized. Whether you're a student, professional, or just someone looking to keep track of daily activities, our ToDoList App has got you covered.
+Welcome to our ToDoList App! This project was created by Mehregan and Armin for the Advanced Programming course in the Isfahan University of Technology instructed by Ali Iranidoust to provide a simple and efficient way to manage your tasks and stay organized. Whether you're a student, professional, or just someone looking to keep track of daily activities, our ToDoList App has got you covered.
 
 Features
 User-friendly Interface: The app comes with an intuitive and easy-to-use interface, making task management a breeze.
@@ -31,7 +31,8 @@ License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 Acknowledgments
-Special thanks to the open-source community of Qt Projects for their valuable contributions and inspiration.
+Special thanks to the open-source community of Qt Projects for their valuable contributions and inspiration,
+the instructor and assistants.
 
 Happy task managing!
 
