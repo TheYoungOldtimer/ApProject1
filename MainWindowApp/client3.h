@@ -5,9 +5,8 @@
 #include <QTcpSocket>
 using namespace std;
 
-namespace Ui
-{
-    class client3;
+namespace Ui {
+class client3;
 }
 
 class client3 : public QDialog
@@ -15,18 +14,19 @@ class client3 : public QDialog
     Q_OBJECT
 
 public:
-    explicit client3(QWidget *parent = nullptr);
-    QByteArray ReadFile(QJsonObject obj, QJsonDocument doc, QString path);
-    void WriteInFile(QByteArray bytes, QString path);
+    explicit client3(QWidget *parent ,quint16 port);
+    QByteArray ReadFile(QJsonObject obj, QJsonDocument doc,QString path);
+    void WriteInFile(QByteArray bytes,QString path);
     ~client3();
 public slots:
-
+    void timeouted();
     void connectingToServer();
     void connectedToServer();
     void readingData();
     void writingData();
 
     void disconnectedFromServer();
+
 
 private slots:
 
@@ -54,11 +54,10 @@ private slots:
 
     void on_passRepeat_editingFinished();
 
-    // void on_passNotSame_linkActivated(const QString &link);
-
 private:
     Ui::client3 *ui;
     QTcpSocket *clientsocket;
+    quint16 port16 ;
 };
 extern QJsonObject JObj;
 extern QByteArray bytes;
