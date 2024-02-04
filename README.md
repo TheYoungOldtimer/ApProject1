@@ -10,7 +10,7 @@ Task Creation and Deletion: Add and remove tasks with just a few clicks.
 Data Persistence: Your tasks are saved locally, ensuring that your to-do list is available even after closing the app.
 
 # Getting Started
-#Prerequisites
+Prerequisites
 Make sure you have Qt Framework installed on your machine.
 
 # Installation
