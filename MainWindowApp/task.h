@@ -1,27 +1,19 @@
-#ifndef TASK_H
-#define TASK_H
+#ifndef PROJECT_H
+#define PROJECT_H
 
 #include <QObject>
-
-class task
+#include "member.h"
+#include "task.h"
+#include <QVector>
+using namespace std;
+class project
 {
 public:
-    QString title="";
-    QString CEO ="";
-    QString manager="";
-    bool tomember = true;
-    bool toteam = false;
-    bool toproject = false;
-    bool toorgan = false;
-    QString MamberEmail="";
-    QString TeamName="";
-    QString ProjectName="";
-    QString OrganName="";
-    bool isArchived = false;
-    task();
-
-public slots:
-
+    QString name = "";
+    QString CEO = "";
+    QString Manager = "";
+    QString projecttask = "";
+    project();
 };
 
-#endif // TASK_H
+#endif // PROJECT_H
