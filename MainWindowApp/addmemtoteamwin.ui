@@ -13,19 +13,30 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(222, 222, 222);</string>
+  </property>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>264</x>
-     <y>260</y>
-     <width>151</width>
-     <height>41</height>
+     <x>270</x>
+     <y>220</y>
+     <width>121</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>14</pointsize>
     </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(170, 170, 255);
+background-color: rgb(85, 170, 255);
+color: rgb(0, 0, 0);</string>
    </property>
    <property name="text">
     <string>Done!</string>
@@ -45,6 +56,9 @@
      <pointsize>14</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);</string>
+   </property>
    <property name="text">
     <string>Member's Email :</string>
    </property>
@@ -57,6 +71,9 @@
      <width>221</width>
      <height>51</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
   </widget>
   <widget class="QLabel" name="error">

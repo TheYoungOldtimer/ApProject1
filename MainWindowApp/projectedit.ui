@@ -13,12 +13,16 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(222, 222, 222);
+color: rgb(0, 0, 0);</string>
+  </property>
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
      <x>220</x>
      <y>110</y>
-     <width>231</width>
+     <width>271</width>
      <height>51</height>
     </rect>
    </property>
@@ -27,12 +31,15 @@
      <pointsize>14</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>36</x>
-     <y>102</y>
+     <x>60</x>
+     <y>110</y>
      <width>131</width>
      <height>51</height>
     </rect>
@@ -43,13 +50,13 @@
     </font>
    </property>
    <property name="text">
-    <string>New name :</string>
+    <string>New Name :</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>270</x>
      <y>290</y>
      <width>171</width>
      <height>71</height>
@@ -59,6 +66,12 @@
     <font>
      <pointsize>14</pointsize>
     </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(85, 170, 255);</string>
    </property>
    <property name="text">
     <string>Done!</string>

@@ -13,19 +13,29 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(222, 222, 222);
+color: rgb(0, 0, 0);</string>
+  </property>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>214</x>
-     <y>212</y>
+     <x>270</x>
+     <y>200</y>
      <width>121</width>
-     <height>41</height>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>14</pointsize>
     </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(85, 170, 255);</string>
    </property>
    <property name="text">
     <string>Done!</string>
@@ -34,20 +44,23 @@
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>90</y>
-     <width>181</width>
+     <x>220</x>
+     <y>80</y>
+     <width>201</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>26</x>
-     <y>100</y>
-     <width>181</width>
-     <height>20</height>
+     <x>20</x>
+     <y>80</y>
+     <width>191</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
@@ -56,7 +69,7 @@
     </font>
    </property>
    <property name="text">
-    <string>New organization name :</string>
+    <string>New Organization Name :</string>
    </property>
   </widget>
  </widget>

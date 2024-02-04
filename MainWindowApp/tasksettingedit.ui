@@ -13,19 +13,29 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(222, 222, 222);
+color: rgb(0, 0, 0);</string>
+  </property>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>150</y>
-     <width>111</width>
-     <height>31</height>
+     <x>190</x>
+     <y>140</y>
+     <width>131</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>14</pointsize>
     </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(85, 170, 255);</string>
    </property>
    <property name="text">
     <string>Done!</string>
@@ -45,6 +55,9 @@
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
@@ -60,6 +73,9 @@
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 0, 0);</string>
+   </property>
    <property name="text">
     <string/>
    </property>
@@ -67,7 +83,7 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>50</x>
      <y>50</y>
      <width>81</width>
      <height>41</height>
@@ -79,7 +95,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Ttile :</string>
+    <string>Title :</string>
    </property>
   </widget>
  </widget>
